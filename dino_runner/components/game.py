@@ -38,7 +38,7 @@ class Game:
 
     def draw(self):
         self.clock.tick(FPS)
-        self.screen.fill((255, 255, 255))
+        self.screen.fill((100, 100, 100))
         self.draw_background()
         self.draw_cloud()
         self.player.draw(self.screen)
@@ -56,12 +56,12 @@ class Game:
         
         
     def draw_cloud(self):
-        cloud_speed = 10
+        cloud_speed = 5
         image_width = CLOUD.get_width()
         self.screen.blit(CLOUD, (self.x_pos_cloud, self.y_pos_cloud))
         self.screen.blit(CLOUD, (image_width + self.x_pos_cloud, self.y_pos_cloud))
-        if self.x_pos_cloud < -image_width:
-            self.screen.blit(CLOUD,(image_width + self.x_pos_cloud,self.y_pos_cloud+100))
+        if self.x_pos_cloud <= -image_width:
+            self.screen.blit(CLOUD,(image_width + self.x_pos_cloud,self.y_pos_cloud))
             self.x_pos_cloud = 0
         self.x_pos_cloud -= cloud_speed  
       
