@@ -8,7 +8,7 @@ class Obstacle:
     
     def update(self, game_speed, player):
         self.rect.x -= game_speed
-        if self.rect.colliderect(player.dinorect):
+        if self.rect.colliderect(player.dino_rect):
             pygame.time.delay(300)
     
     def draw(self,screen):
