@@ -22,6 +22,7 @@ class ObstacleManager:
                     self.obstacles.append(Bird(BIRD))
                  
         for obstacle in self.obstacles:
+        
             if obstacle.rect.x < -obstacle.rect.width:
                 self.obstacles.pop()
             obstacle.update(game_speed,player)    
