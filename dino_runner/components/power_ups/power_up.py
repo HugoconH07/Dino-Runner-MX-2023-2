@@ -1,10 +1,11 @@
 import pygame
 from pygame.sprite import Sprite
 from dino_runner.utils.constants import SCREEN_WIDTH
+
 class PowerUp(Sprite):
     Y_POS_POWER_UP = 125
     POWER_UP_DURATION = 4200
-    def __init__(self,image,type):
+    def __init__(self, image, type):
         print("power")
         self.image = image
         self.type = type

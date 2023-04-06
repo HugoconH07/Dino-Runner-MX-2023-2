@@ -7,5 +7,5 @@ class Cactus(Obstacle):
     
     def __init__(self,image):
         self.type = random.choice([0,2])
-        super().__init__(image,self.type)
+        super().__init__(self.type, image)
         self.rect.y = self.Y_POS_CACTUS
