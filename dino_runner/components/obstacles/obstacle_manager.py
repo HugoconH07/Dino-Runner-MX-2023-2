@@ -2,7 +2,8 @@ import random
 from dino_runner.components.obstacles.cactus import Cactus
 from dino_runner.components.obstacles.large_cactus import Large_Cactus
 from dino_runner.components.obstacles.bird import Bird
-from dino_runner.utils.constants import BIRD,LARGE_CACTUS,SMALL_CACTUS
+from dino_runner.components.obstacles.rock import Rock
+from dino_runner.utils.constants import BIRD,LARGE_CACTUS,SMALL_CACTUS,ROCK
 
 class ObstacleManager:
     def __init__(self):
@@ -10,9 +11,9 @@ class ObstacleManager:
     
         
     def update(self, game_speed, player):
-        if len(self.obstacles) ==0: 
+        if len(self.obstacles) == 0: 
             
-            obstacle_aparition = random.randint(0,2) 
+            obstacle_aparition = random.randint(0,3) 
             match obstacle_aparition:
                 case 0:
                     self.obstacles.append(Cactus(SMALL_CACTUS))
@@ -20,9 +21,10 @@ class ObstacleManager:
                     self.obstacles.append(Large_Cactus(LARGE_CACTUS))  
                 case 2:
                     self.obstacles.append(Bird(BIRD))
+                case 3:
+                    self.obstacles.append(Rock(ROCK))
                  
         for obstacle in self.obstacles:
-        
             if obstacle.rect.x < -obstacle.rect.width:
                 self.obstacles.pop()
             obstacle.update(game_speed,player)    

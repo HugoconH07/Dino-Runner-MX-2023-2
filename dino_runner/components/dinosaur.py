@@ -75,15 +75,11 @@ class Dinosaur(Sprite):
             self.step_index = 0
 
 
-        if self.shield:
+        if self.shield or self.hammer:
             time_to_show = round((self.time_up_power_up - pygame.time.get_ticks())/ 1000,2)
             if time_to_show < 0:
                 self.reset()
-                
-        if self.hammer:
-            time_to_show = round((self.time_up_power_up - pygame.time.get_ticks())/ 1000,2)
-            if time_to_show < 0:
-                self.reset()
+            
 
     def draw(self, screen):
         screen.blit(self.image, self.dino_rect)
